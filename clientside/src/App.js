@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+const testing = true;
+
 function TableHeader( {rowKeys} ) {
 	return ( <thead><tr> {
 			rowKeys.map( key => <td><h3>{key}</h3></td> )
@@ -13,14 +15,21 @@ function DataRow({row}) {
 
 function DataTable() {
 	const [data, setData] = useState([]);
+	let jsonSource;
+	if (testing) {
+		jsonSource = "http://localhost:3001/datos";
+	} else {
+		jsonSource = "/datos";
+	}
 
 	useEffect(() => {
-    	fetch("/datos")
+    	fetch(jsonSource)
     		.then(response => response.json())
     		.then(json_data => {
     			setData(json_data.productos);
     		} );
 	}, []);
+	
 
 	// fallback
 	if (data.length === 0) {
