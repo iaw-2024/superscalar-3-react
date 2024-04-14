@@ -1,0 +1,67 @@
+body, html {
+	min-height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: "Bahnschrift", serif;
+	background-color: antiquewhite;
+}
+
+header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+
+	background-color: #ddd;
+	border-bottom: 2px solid #333;
+	height: 5rem;
+}
+
+main {	
+	margin-top: 2rem;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	transition: font-size 1s;
+}
+
+main, th, td {
+	transition: font-size 1s;
+}
+
+main > table {
+	border-collapse: collapse;
+	border: 1rem double #900;
+	background-color: white;
+}
+
+thead { border-bottom: 2px solid black; }
+tr:nth-child(even) { background-color: #ddd; }
+td, th { padding: .5rem; }
+
+td { font-family: "Verdana", serif; }
+
+th:nth-child(even), td:nth-child(even) {
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+}
+
+@media only screen and (min-width: 860px) {
+	th { font-size: 1.5rem; }
+	td { font-size: 1.2rem; }
+
+	main > table {
+		width: fit-content;
+		min-width: 860px;
+	}
+}
+
+@media only screen and (max-width: 859px) {
+	th { font-size: 1rem; }
+	td { font-size: 0.8rem; }
+
+	main > table {
+		width: fit-content;
+		overflow-x: auto;
+	}
+}
