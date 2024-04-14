@@ -15,7 +15,7 @@ function DataTable() {
 	const [data, setData] = useState([]);
 
 	useEffect(() => {
-    	fetch("http://localhost:3001/datos")
+    	fetch("/datos")
     		.then(response => response.json())
     		.then(json_data => {
     			setData(json_data.productos);
